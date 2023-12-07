@@ -1,9 +1,13 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:fgm_app/theme.dart';
+import 'package:fgm_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'components/dialog.dart';
 import 'generated/l10n.dart';
 import 'package:intl/intl.dart';
+
+
 
 void main() {
   Intl.defaultLocale = 'en';
@@ -17,8 +21,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
-        light: lightTheme,
-        dark: darkTheme,
+        light: kLightTheme,
+        dark: kDarkTheme,
         debugShowFloatingThemeButton: true,
         initial: AdaptiveThemeMode.light,
         builder: (theme, darkTheme) => MaterialApp(
@@ -46,40 +50,150 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        //backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(S.of(context).app_bar_title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              S.of(context).main_title,
+      body: Material(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar.medium(
+              leading:
+              IconButton(icon: const Icon(Icons.settings_outlined), onPressed: () {}),
+              title: Text(S
+                  .of(context)
+                  .app_bar_title),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.flight),
+                  onPressed: () =>
+                      dialogBuilder(context,
+                          title: S
+                              .of(context)
+                              .chose_your_flight),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            // Just some content big enough to have something to scroll.
+            SliverToBoxAdapter(
+              child: Card(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    const SizedBox(height: 8.0),
+                    GroupButtonTitle(
+                      title: S
+                          .of(context)
+                          .inbound_Time_Info,
+                      icon: const Icon(Icons.flight_land),
+                    ),
+                    //Spacer(),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Ramp Agent Start',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Final Figures Gate',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Boarding OK',
+                    ),
+                    GroupButtonTitle(
+                      title: S
+                          .of(context)
+                          .outgoing_Time_Info,
+                      icon: const Icon(Icons.flight_takeoff),
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'First Bus',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Ramp Agent Start',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Final Figures Gate',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Boarding OK',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'First Bus',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Ramp Agent Start',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Final Figures Gate',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'Boarding OK',
+                    ),
+                    const ButtonsGroupCard(
+                      buttonTitle: 'First Bus',
+                    ),
+
+                    //ElevatedCardExample(),
+                    //FilledCardExample(),
+                    //OutlinedCardExample(),
+                    //Spacer(),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+  /*
+  Future<void> _dialogBuilder(BuildContext context, {required String title}) {
+    final String dialogTitle = title;
+
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(dialogTitle),
+          content: const SizedBox(
+            height: 150,
+            child: Column(
+              children: [
+                DropdownMenuExample(),
+                SizedBox(height: 16,),
+                CustomTextField(),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Disable'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Enable'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+*/
+

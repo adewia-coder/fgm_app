@@ -23,7 +23,23 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "app_bar_title":
-            MessageLookupByLibrary.simpleMessage("Ground Operations Tracker"),
-        "main_title": MessageLookupByLibrary.simpleMessage("GOT")
+            MessageLookupByLibrary.simpleMessage("Ground Time: 00:00:00"),
+        "are_you_sure_you_want_to_delete_this_flight":
+            MessageLookupByLibrary.simpleMessage(
+                "Are you sure you want to delete this flight?"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "chose_your_flight":
+            MessageLookupByLibrary.simpleMessage("Chose Your Flight"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "delete_flight_title":
+            MessageLookupByLibrary.simpleMessage("DeleteFlight"),
+        "flight_number": MessageLookupByLibrary.simpleMessage("Flight Number"),
+        "inbound_Time_Info":
+            MessageLookupByLibrary.simpleMessage("Inbound Time Info"),
+        "main_title": MessageLookupByLibrary.simpleMessage("GOT"),
+        "outgoing_Time_Info":
+            MessageLookupByLibrary.simpleMessage("Outgoing Time Info"),
+        "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
+        "unsubscribe": MessageLookupByLibrary.simpleMessage("Unsubscribe")
       };
 }

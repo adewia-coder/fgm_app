@@ -1,37 +1,28 @@
-
 import 'package:flutter/material.dart';
-const kPrimarySwatch = Colors.red;
-const kSeedColor = Colors.red;
-const lightAppBarColor = Colors.red;
-const darkAppBarColor = Color(0xff70140f);
 
-final colorScheme = ColorScheme.fromSwatch(
-  primarySwatch: kPrimarySwatch, // Die gewählte Farbschwelle
-);
+const kLightThemeColor = Color(0xff140f38);
+const scaffoldBackgroundColor = Color(0xffe0e0e0);
 
-
-final lightTheme = ThemeData(
+final kLightTheme = ThemeData(
   useMaterial3: true,
-  appBarTheme: const AppBarTheme(
-    backgroundColor: lightAppBarColor,
-    titleTextStyle: TextStyle(
-      color:Colors.white,
-      fontSize: 22// Ändern Sie die Textfarbe auf Weiß
-    ),
-  ),
+  scaffoldBackgroundColor: scaffoldBackgroundColor,
   brightness: Brightness.light,
-  colorSchemeSeed: kSeedColor,
+  colorSchemeSeed: kLightThemeColor,
+  dropdownMenuTheme:const DropdownMenuThemeData(),
+  appBarTheme: const AppBarTheme(
+    //backgroundColor: Colors.transparent,
+    elevation: 0,
+  ),
+  /*buttonTheme: ButtonThemeData(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(
+          12.0),
+    ),
+)*/
 );
 
-final darkTheme = ThemeData(
+final kDarkTheme = ThemeData(
   useMaterial3: true,
-  appBarTheme: const AppBarTheme(
-    backgroundColor: darkAppBarColor,
-    titleTextStyle: TextStyle(
-        color:Colors.white,
-        fontSize: 22// Ändern Sie die Textfarbe auf Weiß
-    ),
-  ),
   brightness: Brightness.dark,
-  colorSchemeSeed: kSeedColor,
+  colorSchemeSeed: kLightThemeColor,
 );

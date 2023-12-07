@@ -1,4 +1,14 @@
 {
-  "app_bar_title": "Ground Operations Tracker",
-  "main_title": "GOT"
+  "app_bar_title": "Ground Time: 00:00:00",
+  "main_title": "GOT",
+  "inbound_Time_Info": "Inbound Time Info",
+  "outgoing_Time_Info": "Outgoing Time Info",
+  "chose_your_flight": "Chose Your Flight",
+  "subscribe": "Subscribe",
+  "cancel": "Cancel",
+  "unsubscribe": "Unsubscribe",
+  "are_you_sure_you_want_to_delete_this_flight": "Are you sure you want to delete this flight?",
+  "delete_flight_title" : "DeleteFlight",
+  "delete": "Delete",
+  "flight_number": "Flight Number"
 }
