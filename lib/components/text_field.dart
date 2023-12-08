@@ -11,6 +11,8 @@ class CustomTextField extends StatelessWidget {
       width: 130,
       child: TextField(
         controller: controller,
+        keyboardType: TextInputType.number,
+        textCapitalization: TextCapitalization.characters,
         decoration: InputDecoration(
           hintText: S.of(context).flight_number,
         ),

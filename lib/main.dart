@@ -5,11 +5,10 @@ import 'package:fgm_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'components/dialog.dart';
-import 'functions/functions.dart';
+import 'functions/event_handler.dart';
+
 import 'generated/l10n.dart';
 import 'package:intl/intl.dart';
-
-import 'model/flight_data.dart';
 
 
 
@@ -54,15 +53,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  /*
   static const conOnBlockTime = 'ON BLOCK';
   static const conRaOnStand = 'RAMP AGENT START';
 
-
   final flightDataService = FlightDataService();
-  String? selectedAirline = 'U2';
-  String? flightNumber = '456';
+  String? selectedAirline;
+  String? flightNumber;
 
   Map<String, String> eventTimes = {};
+
 
   void handleEvent(String event) async {
     if (selectedAirline == null || flightNumber == null) {
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // Überprüfung, ob ein Flug mit der gewählten Airline und Flugnummer existiert
     int? flightId = await flightDataService.checkIfFlightExists(
         selectedAirline!, flightNumber!);
-    print(flightId);
+
 
     FlightData? flightData;
     bool success = false;
@@ -87,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (flightId != null) {
       // Lade die aktuellen Daten des Fluges
       FlightData? fetchedFlightData =
-      await flightDataService.getFlightData(flightId);
+          await flightDataService.getFlightData(flightId);
 
       if (fetchedFlightData != null) {
         // Aktualisiere die Daten mit dem neuen Ereignis
@@ -100,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Aktualisiere den vorhandenen Flug
         print("einen vorhandenen Flug wird aktualisieren");
         success =
-        await flightDataService.updateData(flightId, fetchedFlightData);
+            await flightDataService.updateData(flightId, fetchedFlightData);
       } else {
         // Zeige eine Fehlermeldung an, wenn keine Daten für den Flug gefunden wurden
         scaffoldMessenger.showSnackBar(
@@ -148,7 +149,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     }
-  }
+  }*/
+  Map<String, String> eventTimes = {};
+  String? selectedAirline;
+  String? flightNumber;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -157,19 +163,39 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar.medium(
-              leading:
-              IconButton(icon: const Icon(Icons.settings_outlined), onPressed: () {}),
-              title: Text(S
-                  .of(context)
-                  .app_bar_title),
+              leading: IconButton(
+                  icon: const Icon(Icons.settings_outlined), onPressed: () {}),
+              title: Text(S.of(context).app_bar_title),
               actions: <Widget>[
+                if (selectedAirline != null) // Überprüfung, ob selectedAirline nicht null ist
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Center(
+                      child: Text('$selectedAirline', style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 16),),
+                    ),
+                  ),
+                if (flightNumber != null) // Überprüfung, ob flightNumber nicht null ist
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Center(
+                      child: Text('$flightNumber', style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 16),),
+                    ),
+                  ),
                 IconButton(
                   icon: const Icon(Icons.flight),
-                  onPressed: () =>
-                      dialogBuilder(context,
-                          title: S
-                              .of(context)
-                              .chose_your_flight, onSubscribe: updateFlightNumber),
+                  onPressed: () => dialogBuilder(context,
+                      title: S.of(context).chose_your_flight,
+                      onCompleted: (String flightNumber, String airline ) {
+                    setState(() {
+                      selectedAirline = airline;
+                      this.flightNumber = flightNumber;
+                    });
+                  }, onUnsubscribe: () {
+                    setState(() {
+                      selectedAirline = null;
+                      flightNumber = null;
+                    });
+                  }),
                 ),
               ],
             ),
@@ -187,27 +213,221 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     const SizedBox(height: 8.0),
                     GroupButtonTitle(
-                      title: S
-                          .of(context)
-                          .inbound_Time_Info,
+                      title: S.of(context).inbound_Time_Info,
                       icon: const Icon(Icons.flight_land),
                     ),
                     //#########################################################
                     ButtonsGroupCard(
-                      buttonTitle: 'Ramp Agent Start', eventTimes: eventTimes, conOnBlockTime: conRaOnStand, onButtonPressed: onButtonPressed,
+                      buttonTitle: 'Ramp Agent Start', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conRaOnStand,
+                      onButtonPressed: onButtonPressed,
                     ),
                     ButtonsGroupCard(
-                      buttonTitle: 'On Block', eventTimes: eventTimes, conOnBlockTime: conOnBlockTime, onButtonPressed: onButtonPressed,
+                      buttonTitle: 'On Block', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conOnBlockTime,
+                      onButtonPressed: onButtonPressed,
                     ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Start Engineering', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conStartEngineeringTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'End Engineering', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conEndEngineeringTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+
+
+                    ButtonsGroupCard(
+                      buttonTitle: 'First Pax Out', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conFirstPaxOutTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Last Pax Out', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conLastPaxOutTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Prm Out', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conPrmOutTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Cleaning Start', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conCleaningStartTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Cleaning End', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conCleaningEndTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+
+                    ButtonsGroupCard(
+                      buttonTitle: 'Loading Start', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conLoadingStartTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Catering Start', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conCateringStartTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+                    ButtonsGroupCard(
+                      buttonTitle: 'Catering End', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conCateringEndTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Loading End', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conLoadingEndTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Deicing Request', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conDeicingRequestTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+
+
+                    ButtonsGroupCard(
+                      buttonTitle: 'Start Boarding', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conStartBoardingTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'First Bus', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conFirstBusTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Last Bus', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conLastBusTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Boarding Ok', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conBoardingOkTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'End Boarding', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conEndBoardingTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+
+
+
+
+                    ButtonsGroupCard(
+                      buttonTitle: 'Prm On Stand', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conPrmOnStandTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Final Figures Gate', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conFinalFiguresGateTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Delivery Lid', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conDeliveryLidTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Door Closed', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conDoorClosedTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Pushback On Stand', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conPushbackOnStandTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+
+
+
+                    ButtonsGroupCard(
+                      buttonTitle: 'Off Block', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conOffBlockTime,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Pushback Request', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conPushbackRequest,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Stairs Request', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conStairsRequest,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'ASU Request', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conAsuRequest,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'GPU Request', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conGpuRequest,
+                      onButtonPressed: onButtonPressed,
+                    ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Load Team Request', //TODO Language
+                      eventTimes: eventTimes,
+                      conOnBlockTime: conLoadTeamRequest,
+                      onButtonPressed: onButtonPressed,
+                    ),
+
+
+
+
+
+
+
                     //#########################################################
 
                     GroupButtonTitle(
-                      title: S
-                          .of(context)
-                          .outgoing_Time_Info,
+                      title: S.of(context).outgoing_Time_Info,
                       icon: const Icon(Icons.flight_takeoff),
                     ),
-
                   ],
                 ),
               ),
@@ -217,28 +437,28 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
   void onButtonPressed(String event) {
     if (selectedAirline != null && flightNumber != null) {
-      handleEvent(event);
+      //handleEvent(event);
+      handleEvent(
+          event,
+          selectedAirline,
+          flightNumber,
+          context,
+              (updatedEventTimes) {
+            setState(() {
+              eventTimes = updatedEventTimes;
+            });
+          }
+      );
+
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Please select an airline and enter a flight number!'),
+          content: Text('Please select an airline and enter a flight number!'), //TODO Language
         ),
       );
     }
-  }
-
-  //Callbacks für Dialog
-  void updateFlightNumber(String newFlightNumber) {
-    setState(() {
-      flightNumber = newFlightNumber;
-    });
-  }
-
-  void updateSelectedAirline(String newSelectedAirline) {
-    setState(() {
-      selectedAirline = newSelectedAirline;
-    });
   }
 }

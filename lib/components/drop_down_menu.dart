@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 
 class DropdownMenuExample extends StatefulWidget {
-  const DropdownMenuExample({super.key});
+  final Function(String) onSelectedValue;
+
+  const DropdownMenuExample({super.key, required this.onSelectedValue});
 
   @override
   State<DropdownMenuExample> createState() => _DropdownMenuExampleState();
@@ -14,21 +16,19 @@ class _DropdownMenuExampleState extends State<DropdownMenuExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //decoration: BoxDecoration(
-      //    color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      child: DropdownMenu<String>(
-        initialSelection: list.first,
-        onSelected: (String? value) {
-          // This is called when the user selects an item.
+    return DropdownMenu<String>(
+      initialSelection: list.first,
+      onSelected: (String? value) {
+        if (value != null) {
           setState(() {
-            dropdownValue = value!;
+            dropdownValue = value;
           });
-        },
-        dropdownMenuEntries: list.map<DropdownMenuEntry<String>>((String value) {
-          return DropdownMenuEntry<String>(value: value, label: value);
-        }).toList(),
-      ),
+          widget.onSelectedValue(value);
+        }
+      },
+      dropdownMenuEntries: list.map<DropdownMenuEntry<String>>((String value) {
+        return DropdownMenuEntry<String>(value: value, label: value);
+      }).toList(),
     );
   }
 }

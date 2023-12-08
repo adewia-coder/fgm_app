@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a de locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,32 +18,28 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'de';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "app_bar_title":
-            MessageLookupByLibrary.simpleMessage("Ground Time: 00:00:00"),
+            MessageLookupByLibrary.simpleMessage("Bodenzeit: 00:00:00"),
         "are_you_sure_you_want_to_delete_this_flight":
             MessageLookupByLibrary.simpleMessage(
-                "Are you sure you want to delete this flight?"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+                "Sind Sie sicher, dass Sie diesen Flug löschen möchten?"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Abbrechen"),
         "chose_your_flight":
-            MessageLookupByLibrary.simpleMessage("Chose Your Flight"),
-        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+            MessageLookupByLibrary.simpleMessage("Wählen Sie Ihren Flug"),
+        "delete": MessageLookupByLibrary.simpleMessage("Löschen"),
         "delete_flight_title":
-            MessageLookupByLibrary.simpleMessage("Delete Flight"),
-        "flight_number": MessageLookupByLibrary.simpleMessage("Flight Number"),
+            MessageLookupByLibrary.simpleMessage("Flug löschen"),
+        "flight_number": MessageLookupByLibrary.simpleMessage("Flugnummer"),
         "inbound_Time_Info":
-            MessageLookupByLibrary.simpleMessage("Inbound Time Info"),
+            MessageLookupByLibrary.simpleMessage("Ankunftszeit Informationen"),
         "main_title": MessageLookupByLibrary.simpleMessage("GOT"),
         "outgoing_Time_Info":
-            MessageLookupByLibrary.simpleMessage("Outgoing Time Info"),
-        "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
-        "subscribed_successfully":
-            MessageLookupByLibrary.simpleMessage("Subscribed successfully!"),
-        "unsubscribe": MessageLookupByLibrary.simpleMessage("Unsubscribe"),
-        "unsubscribe_successfully":
-            MessageLookupByLibrary.simpleMessage("Unsubscribe successfully!")
+            MessageLookupByLibrary.simpleMessage("Abflugzeit Informationen"),
+        "subscribe": MessageLookupByLibrary.simpleMessage("Abonnieren"),
+        "unsubscribe": MessageLookupByLibrary.simpleMessage("Abbestellen")
       };
 }

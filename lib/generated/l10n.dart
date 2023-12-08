@@ -169,6 +169,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Subscribed successfully!`
+  String get subscribed_successfully {
+    return Intl.message(
+      'Subscribed successfully!',
+      name: 'subscribed_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unsubscribe successfully!`
+  String get unsubscribe_successfully {
+    return Intl.message(
+      'Unsubscribe successfully!',
+      name: 'unsubscribe_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -10,5 +10,7 @@
   "are_you_sure_you_want_to_delete_this_flight": "Are you sure you want to delete this flight?",
   "delete_flight_title" : "Delete Flight",
   "delete": "Delete",
-  "flight_number": "Flight Number"
+  "flight_number": "Flight Number",
+  "subscribed_successfully": "Subscribed successfully!",
+  "unsubscribe_successfully": "Unsubscribe successfully!"
 }

@@ -1,8 +1,6 @@
-import 'package:fgm_app/components/text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../generated/l10n.dart';
-import 'drop_down_menu.dart';
 
 Future<void> removeDialogBuilder(BuildContext context, {required String title}) {
   final String dialogTitle = title;
