@@ -140,10 +140,10 @@ class S {
     );
   }
 
-  /// `DeleteFlight`
+  /// `Delete Flight`
   String get delete_flight_title {
     return Intl.message(
-      'DeleteFlight',
+      'Delete Flight',
       name: 'delete_flight_title',
       desc: '',
       args: [],
@@ -177,6 +177,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'ru'),
     ];
   }

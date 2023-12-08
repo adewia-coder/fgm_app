@@ -1,1 +1,14 @@
-{}
+{
+  "app_bar_title": "Время на Земле: 00:00:00",
+  "main_title": "GOT",
+  "inbound_Time_Info": "Информация о Времени Прибытия",
+  "outgoing_Time_Info": "Информация о Времени Отправления",
+  "chose_your_flight": "Выберите Ваш Рейс",
+  "subscribe": "Подписаться",
+  "cancel": "Отменить",
+  "unsubscribe": "Отменить Подписку",
+  "are_you_sure_you_want_to_delete_this_flight": "Вы уверены, что хотите удалить этот рейс?",
+  "delete_flight_title" : "Удалить Рейс",
+  "delete": "Удалить",
+  "flight_number": "Номер Рейса"
+}

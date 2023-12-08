@@ -32,7 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chose Your Flight"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_flight_title":
-            MessageLookupByLibrary.simpleMessage("DeleteFlight"),
+            MessageLookupByLibrary.simpleMessage("Delete Flight"),
         "flight_number": MessageLookupByLibrary.simpleMessage("Flight Number"),
         "inbound_Time_Info":
             MessageLookupByLibrary.simpleMessage("Inbound Time Info"),

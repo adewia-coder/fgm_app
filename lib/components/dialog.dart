@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../generated/l10n.dart';
 import 'drop_down_menu.dart';
 
-Future<void> dialogBuilder(BuildContext context, {required String title}) {
+Future<void> dialogBuilder(BuildContext context, {required String title, required Function(String) onSubscribe}) {
+  final TextEditingController textController = TextEditingController();
   final String dialogTitle = title;
 
   return showDialog<void>(
@@ -12,15 +13,15 @@ Future<void> dialogBuilder(BuildContext context, {required String title}) {
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text(dialogTitle),
-        content: const SizedBox(
+        content: SizedBox(
           height: 150,
           child: Column(
             children: [
-              DropdownMenuExample(),
-              SizedBox(
+              const DropdownMenuExample(),
+              const SizedBox(
                 height: 16,
               ),
-              CustomTextField(),
+              CustomTextField(controller: textController),
             ],
           ),
         ),
@@ -40,6 +41,8 @@ Future<void> dialogBuilder(BuildContext context, {required String title}) {
             ),
             child: Text(S.of(context).subscribe),
             onPressed: () {
+              String textValue = textController.text;
+              onSubscribe(textValue);
               Navigator.of(context).pop();
             },
           ),

@@ -21,5 +21,25 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Время на Земле: 00:00:00"),
+        "are_you_sure_you_want_to_delete_this_flight":
+            MessageLookupByLibrary.simpleMessage(
+                "Вы уверены, что хотите удалить этот рейс?"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Отменить"),
+        "chose_your_flight":
+            MessageLookupByLibrary.simpleMessage("Выберите Ваш Рейс"),
+        "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
+        "delete_flight_title":
+            MessageLookupByLibrary.simpleMessage("Удалить Рейс"),
+        "flight_number": MessageLookupByLibrary.simpleMessage("Номер Рейса"),
+        "inbound_Time_Info": MessageLookupByLibrary.simpleMessage(
+            "Информация о Времени Прибытия"),
+        "main_title": MessageLookupByLibrary.simpleMessage("GOT"),
+        "outgoing_Time_Info": MessageLookupByLibrary.simpleMessage(
+            "Информация о Времени Отправления"),
+        "subscribe": MessageLookupByLibrary.simpleMessage("Подписаться"),
+        "unsubscribe": MessageLookupByLibrary.simpleMessage("Отменить Подписку")
+      };
 }

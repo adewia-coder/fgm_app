@@ -1,0 +1,14 @@
+{
+  "app_bar_title": "Bodenzeit: 00:00:00",
+  "main_title": "GOT",
+  "inbound_Time_Info": "Ankunftszeit Informationen",
+  "outgoing_Time_Info": "Abflugzeit Informationen",
+  "chose_your_flight": "Wählen Sie Ihren Flug",
+  "subscribe": "Abonnieren",
+  "cancel": "Abbrechen",
+  "unsubscribe": "Abonnement kündigen",
+  "are_you_sure_you_want_to_delete_this_flight": "Sind Sie sicher, dass Sie diesen Flug löschen möchten?",
+  "delete_flight_title" : "Flug löschen",
+  "delete": "Löschen",
+  "flight_number": "Flugnummer"
+}

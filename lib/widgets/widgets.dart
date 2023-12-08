@@ -5,7 +5,17 @@ import '../generated/l10n.dart';
 
 class ButtonsGroupCard extends StatelessWidget {
   final String buttonTitle;
-  const ButtonsGroupCard({super.key, required this.buttonTitle});
+  final Map<String, String> eventTimes;
+  final String conOnBlockTime;
+  final Function(String) onButtonPressed;
+
+  const ButtonsGroupCard({
+    super.key,
+    required this.buttonTitle,
+    required this.eventTimes,
+    required this.conOnBlockTime,
+    required this.onButtonPressed,
+  });
 
 
 
@@ -19,31 +29,34 @@ class ButtonsGroupCard extends StatelessWidget {
         height: 100,
         child: Column(
           children: [
-             Row(
-              children: [
-                const SizedBox(width: 30,),
-                const Text('12:34:45'),
-                 const Spacer(),
-                IconButton(
-                    onPressed: () => removeDialogBuilder(context,
-                        title: S
-                            .of(context)
-                            .delete_flight_title), icon:  const Icon(Icons.delete_outline),),
-                IconButton(
-                  onPressed: (){
-                    showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay.now(),
-                    );
-                  }, icon:  const Icon(Icons.timer_outlined),),
-              ],
-            ),
+             Padding(
+               padding: const EdgeInsets.only(left: 8),
+               child: Row(
+                children: [
+                  if (eventTimes.containsKey(conOnBlockTime))
+                    Text(eventTimes[conOnBlockTime]!),
+                   const Spacer(),
+                  IconButton(
+                      onPressed: () => removeDialogBuilder(context,
+                          title: S
+                              .of(context)
+                              .delete_flight_title), icon:  const Icon(Icons.delete_outline),),
+                  IconButton(
+                    onPressed: (){
+                      showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                      );
+                    }, icon:  const Icon(Icons.timer_outlined),),
+                ],
+                           ),
+             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed:() => onButtonPressed(conOnBlockTime),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
