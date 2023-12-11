@@ -45,7 +45,8 @@ void handleEvent(String event,
     String? selectedAirline,
     String? flightNumber,
     BuildContext context,
-    Function(Map<String, String>) onEventProcessed) async {
+    Function(Map<String, String>) onEventProcessed,
+    [String? manuallySelectedTime]) async {
   if (selectedAirline == null || flightNumber == null) {
     ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Bitte alle Felder ausfüllen!'))); //TODO Language
@@ -53,7 +54,9 @@ void handleEvent(String event,
   }
 
 
-  var currentTime = DateTime.now().toIso8601String();
+  var currentTime = manuallySelectedTime ?? DateTime.now().toIso8601String();
+
+  print(currentTime);
 
   final scaffoldMessenger = ScaffoldMessenger.of(context);
 
@@ -195,8 +198,17 @@ void handleEvent(String event,
   }
 
   if (success) {
-    String time = getCurrentTime();
-    eventTimes[event] = 'Recorded time $time'; //TODO Language
+    String time;
+    if (manuallySelectedTime != null) {
+      var dateTime = DateTime.parse(manuallySelectedTime);
+      time = '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}:${dateTime.second.toString().padLeft(2, '0')}';
+    } else {
+      time = getCurrentTime();
+    }
+
+
+
+    eventTimes[event] = time; //TODO Language
 
     onEventProcessed(eventTimes);
 

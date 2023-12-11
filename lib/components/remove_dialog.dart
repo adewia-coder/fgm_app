@@ -10,7 +10,7 @@ Future<void> removeDialogBuilder(BuildContext context, {required String title}) 
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text(dialogTitle),
-        content: Text(S.of(context).are_you_sure_you_want_to_delete_this_flight),
+        content: Text(S.of(context).are_you_sure_you_want_to_delete_this_time),
         actions: <Widget>[
           TextButton(
             style: TextButton.styleFrom(

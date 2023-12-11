@@ -131,7 +131,7 @@ class S {
   }
 
   /// `Are you sure you want to delete this flight?`
-  String get are_you_sure_you_want_to_delete_this_flight {
+  String get are_you_sure_you_want_to_delete_this_time {
     return Intl.message(
       'Are you sure you want to delete this flight?',
       name: 'are_you_sure_you_want_to_delete_this_flight',
