@@ -39,6 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "main_title": MessageLookupByLibrary.simpleMessage("GOT"),
         "outgoing_Time_Info":
             MessageLookupByLibrary.simpleMessage("Outgoing Time Info"),
+        "please_select_an_airline_and_enter_a_flight_number":
+            MessageLookupByLibrary.simpleMessage(
+                "Please select an airline and enter a flight number!"),
         "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "subscribed_successfully":
             MessageLookupByLibrary.simpleMessage("Subscribed successfully!"),

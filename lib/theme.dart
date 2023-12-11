@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 const kLightThemeColor = Color(0xff140f38);
 const scaffoldBackgroundColor = Color(0xffe0e0e0);
 
+
 final kLightTheme = ThemeData(
   useMaterial3: true,
-  scaffoldBackgroundColor: scaffoldBackgroundColor,
+  //scaffoldBackgroundColor: scaffoldBackgroundColor,
   brightness: Brightness.light,
   colorSchemeSeed: kLightThemeColor,
   dropdownMenuTheme:const DropdownMenuThemeData(),

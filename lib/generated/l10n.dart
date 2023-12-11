@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Please select an airline and enter a flight number!`
+  String get please_select_an_airline_and_enter_a_flight_number {
+    return Intl.message(
+      'Please select an airline and enter a flight number!',
+      name: 'please_select_an_airline_and_enter_a_flight_number',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete Flight`
   String get delete_flight_title {
     return Intl.message(
@@ -189,6 +199,66 @@ class S {
       args: [],
     );
   }
+
+  // skipped getter for the 'On Block' key
+
+  // skipped getter for the 'Ramp Agent Start' key
+
+  // skipped getter for the 'Start Engineering' key
+
+  // skipped getter for the 'End Engineering' key
+
+  // skipped getter for the 'First Pax Out' key
+
+  // skipped getter for the 'Last Pax Out' key
+
+  // skipped getter for the 'Prm Out' key
+
+  // skipped getter for the 'Cleaning Start' key
+
+  // skipped getter for the 'Cleaning End' key
+
+  // skipped getter for the 'Loading Start' key
+
+  // skipped getter for the 'Catering Start' key
+
+  // skipped getter for the 'Catering End' key
+
+  // skipped getter for the 'Loading End' key
+
+  // skipped getter for the 'Deicing Request' key
+
+  // skipped getter for the 'Boarding Ok' key
+
+  // skipped getter for the 'Start Boarding' key
+
+  // skipped getter for the 'First Bus' key
+
+  // skipped getter for the 'Last Bus' key
+
+  // skipped getter for the 'End Boarding' key
+
+  // skipped getter for the 'Prm On Stand' key
+
+  // skipped getter for the 'Final Figures Gate' key
+
+  // skipped getter for the 'Delivery Lid' key
+
+  // skipped getter for the 'Door Closed' key
+
+  // skipped getter for the 'Pushback On Stand' key
+
+  // skipped getter for the 'Off Block' key
+
+  // skipped getter for the 'Pushback Request' key
+
+  // skipped getter for the 'Stairs Request' key
+
+  // skipped getter for the 'ASU Request' key
+
+  // skipped getter for the 'GPU Request' key
+
+  // skipped getter for the 'Load Team Request' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
