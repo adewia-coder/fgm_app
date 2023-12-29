@@ -272,23 +272,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       setEventTimeFromTimePicker: setEventTimeFromTimePicker,
                     ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'Cleaning Start', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conCleaningStartTime,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Cleaning Start', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conCleaningStartTime,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'Cleaning End', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conCleaningEndTime,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Cleaning End', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conCleaningEndTime,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
                     ButtonsGroupCard(
                       buttonTitle: 'Loading Start', //TODO Language
@@ -299,23 +299,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       setEventTimeFromTimePicker: setEventTimeFromTimePicker,
                     ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'Catering Start', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conCateringStartTime,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Catering Start', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conCateringStartTime,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'Catering End', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conCateringEndTime,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Catering End', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conCateringEndTime,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
                     ButtonsGroupCard(
                       buttonTitle: 'Loading End', //TODO Language
@@ -447,41 +447,41 @@ class _MyHomePageState extends State<MyHomePage> {
                       setEventTimeFromTimePicker: setEventTimeFromTimePicker,
                     ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'Stairs Request', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conStairsRequest,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Stairs Request', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conStairsRequest,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'ASU Request', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conAsuRequest,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'ASU Request', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conAsuRequest,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'GPU Request', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conGpuRequest,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'GPU Request', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conGpuRequest,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
-                    // ButtonsGroupCard(
-                    //   buttonTitle: 'Load Team Request', //TODO Language
-                    //   eventTimes: eventTimes,
-                    //   conOnBlockTime: conLoadTeamRequest,
-                    //   onButtonPressed: onButtonPressed,
-                    //   removeEventTime: removeEventTime,
-                    //   setEventTimeFromTimePicker: setEventTimeFromTimePicker,
-                    // ),
+                    ButtonsGroupCard(
+                      buttonTitle: 'Load Team Request', //TODO Language
+                      eventTimes: eventTimes,
+                      eventTime: conLoadTeamRequest,
+                      onButtonPressed: onButtonPressed,
+                      removeEventTime: removeEventTime,
+                      setEventTimeFromTimePicker: setEventTimeFromTimePicker,
+                    ),
 
                     //#########################################################
                   ],
